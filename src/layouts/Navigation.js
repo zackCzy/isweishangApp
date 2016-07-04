@@ -6,7 +6,9 @@ import {
 	View,
 	Text,
 	Image,
-	Dimensions
+	Dimensions,
+	DeviceEventEmitter,
+	NativeModules
 } from 'react-native';
 import * as UtilsComponent from './Utils';
 import Router from '../configs/Router';
@@ -30,9 +32,18 @@ class Navigation extends Component {
 		super(props);
 		this.ids = [];
 	}
-
+	handleReceive(obj){
+		console.log(obj);
+	}
 	componentDidMount() {
-
+		//DeviceEventEmitter.addListener('push', this.handleReceive.bind(this));
+		NativeModules.MyIntentModule.getDataFromIntent(
+			(successMsg) =>{
+				alert(successMsg)
+				//this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
+			},
+			(erroMsg) => {alert(erroMsg)}
+		);
 		this.navigator.navigationContext.addListener('didfocus', e => {
 			const { index, id } = e.data.route;
 			const haveFocused = this.ids.indexOf(id) > -1;

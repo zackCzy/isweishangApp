@@ -2,7 +2,9 @@ package com.isweishang.reactModule;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.text.TextUtils;
 
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -39,6 +41,19 @@ public class MyIntentModule extends ReactContextBaseJavaModule {
         } catch (Exception e) {
             throw new JSApplicationIllegalArgumentException(
                     "Could not open the activity : " + e.getMessage());
+        }
+    }
+    @ReactMethod
+    public void getDataFromIntent(Callback successBack,Callback erroBack){
+        try{
+            Activity currentActivity = getCurrentActivity();
+            String result = currentActivity.getIntent().getStringExtra("result");//会有对应数据放入
+            if (TextUtils.isEmpty(result)){
+                result = "No Data";
+            }
+            successBack.invoke(result);
+        }catch (Exception e){
+            erroBack.invoke(e.getMessage());
         }
     }
 }

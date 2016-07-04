@@ -5,7 +5,7 @@
 # Xcode
 #
 build/
-android/build/
+android/app/build/
 ios/
 *.pbxuser
 !default.pbxuser
@@ -40,3 +40,11 @@ buck-out/
 \.buckd/
 android/app/libs
 android/keystores/debug.keystore
+android/app/src/main/res/drawable-ldpi/
+android/playerskin/assets/
+android/playerskin/res/color-notouch/
+android/playerskin/res/drawable-ldpi/
+android/videoJjlibrary/src/main/resources/
+source/css/
+source/logo/
+src/html/

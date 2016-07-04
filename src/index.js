@@ -14,6 +14,7 @@ import {
     switchVersion,
     switchVersionLater,
     markSuccess,
+    //NativeModules
 } from 'react-native-update';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
@@ -100,6 +101,13 @@ class App extends Component {
     };
 
     render() {
+        //NativeModules.MyIntentModule.getDataFromIntent(
+        //    (successMsg) =>{
+        //        alert(successMsg)
+        //        //this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
+        //    },
+        //    (erroMsg) => {alert(erroMsg)}
+        //);
         return (
             <Provider store={store}>
                 <Navigation/>

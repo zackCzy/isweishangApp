@@ -85,7 +85,13 @@ export default class Index extends Component {
 
     render() {
         //MyIntentModule.startActivityByString("com.isweishang.activity.VedioActivity");
-
+//NativeModules.MyIntentModule.getDataFromIntent(
+        //	(successMsg) =>{
+        //		alert(successMsg)
+        //		//this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
+        //	},
+        //	(erroMsg) => {alert(erroMsg)}
+        //);
         const {bannelData,router,user,message} = this.props;
         const Right = <Icon
             name='ios-menu'

@@ -1,18 +1,24 @@
 package com.isweishang;
 import android.app.ActivityManager;
+import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
 
 import com.isweishang.handler.CrashHandler;
 import com.lecloud.config.LeCloudPlayerConfig;
 import com.letv.proxy.LeCloudProxy;
-import com.liuchungui.react_native_umeng_push.UmengPushApplication;
 
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.sharesdk.framework.ShareSDK;
 import io.rong.imkit.RongIM;
 
-public class Application extends UmengPushApplication {
+public class WeigouApplication extends Application {
+
 
     public static String getProcessName(Context cxt, int pid) {
         ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
@@ -39,6 +45,21 @@ public class Application extends UmengPushApplication {
             LeCloudPlayerConfig.getInstance().setPrintSdcardLog(true).setIsApp().setUseLiveToVod(true);//setUseLiveToVod 使用直播转点播功能 (直播结束后按照点播方式播放)
             LeCloudProxy.init(getApplicationContext());
         }
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+
+        String udid =  ExampleUtil.getImei(getApplicationContext(), "");
+        Log.e("JPush",udid);
+        String appKey = ExampleUtil.getAppKey(getApplicationContext());
+        if (null == appKey) appKey = "AppKey异常";
+        Log.e("JPushAppKey:" ,appKey);
+        String deviceId = ExampleUtil.getDeviceId(getApplicationContext());
+        Log.e("JPushdeviceId:" ,deviceId);
+        String rid = JPushInterface.getRegistrationID(getApplicationContext());
+        if (!rid.isEmpty()) {
+            Log.e("JPushrid" ,rid);
+        }
+
     }
 
 }
