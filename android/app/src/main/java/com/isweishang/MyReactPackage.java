@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.isweishang.reactModule.MobShare;
 import com.isweishang.reactModule.MyIntentModule;
+import com.isweishang.reactModule.PushModule;
 import com.isweishang.reactModule.RongyunIm;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class MyReactPackage implements ReactPackage {
         modules.add(new MyIntentModule(reactContext));
         modules.add(new RongyunIm(reactContext));
         modules.add(new MobShare(reactContext));
+        modules.add(new PushModule(reactContext));
         return modules;
     }
 

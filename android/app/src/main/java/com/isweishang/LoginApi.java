@@ -1,7 +1,6 @@
 package com.isweishang;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Looper;
@@ -9,7 +8,6 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.mob.tools.utils.UIHandler;
 
 import java.util.HashMap;
 

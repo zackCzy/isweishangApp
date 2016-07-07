@@ -20,7 +20,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
 import cn.reactnative.modules.update.UpdateContext;
-//import com.lixiang.rn_umeng_share.*;
+
 
 import java.util.Arrays;
 import java.util.List;

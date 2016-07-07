@@ -7,7 +7,7 @@ import {
 	TouchableOpacity,
 	TextInput,
 	StyleSheet,
-	Text,WebView
+	Text
 } from 'react-native';
 import Header from '../components/Header';
 //import WebView from '../components/MyWebView,android';
@@ -15,6 +15,7 @@ import Header from '../components/Header';
 const HEADER = '#3b5998';
 const BGWASH = 'rgba(255,255,255,0.8)';
 const DISABLED_WASH = 'rgba(255,255,255,0.25)';
+import MyWebView from './../components/MyWebView.android'
 
 
 const TEXT_INPUT_REF = 'urlInput';
@@ -54,11 +55,11 @@ export default class Html extends Component {
 							}
 					}
 				/>
-				<WebView
+				<MyWebView
 					ref={WEBVIEW_REF}
 					automaticallyAdjustContentInsets={false}
 					style={styles.webView}
-					source={{uri: 'http://192.168.1.102:3000'}}
+					source={require('./../html/test.html')}
 					javaScriptEnabled={true}
 					domStorageEnabled={true}
 					decelerationRate="normal"

@@ -40,7 +40,6 @@ class Navigation extends Component {
 		NativeModules.MyIntentModule.getDataFromIntent(
 			(successMsg) =>{
 				alert(successMsg)
-				//this.setState({TEXT: successMsg,}); //状态改变的话重新绘制界面
 			},
 			(erroMsg) => {alert(erroMsg)}
 		);
